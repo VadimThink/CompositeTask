@@ -16,8 +16,8 @@ public class FileTextReader implements TextReader{
         FileReader fileReader = null;
         CharArrayWriter charArray = new CharArrayWriter();
         try {
-            fileReader = new FileReader(filePath);
-            char[] charBuffer = new char[1024 * 4]; //reading 8kB in one time
+            fileReader = new FileReader(filePath);//используется такой престарелый приём чтобы читать все символы, в том числе и \t \n
+            char[] charBuffer = new char[1024 * 4];
             int currentCharsAmount;
             while (fileReader.ready()) {
                 currentCharsAmount = fileReader.read(charBuffer);
